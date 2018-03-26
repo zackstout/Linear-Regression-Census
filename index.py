@@ -20,14 +20,16 @@ denominators = []
 
 nums2 = []
 denoms2 = []
-# print(df.head(20))
+print(df.head(20))
 
 # First step will be figuring out all possible responses and converting them into numbers.
 
 # print(df['Average Household Size'])
 
+options = ['Total Population', 'Median Age', 'Total Males', 'Total Females']
 
-for size in df['Average Household Size']:
+# I guess we can just change these column names, everything else should be fine:
+for size in df['Total Females']:
     sizes.append(size)
 for num in df['Total Households']:
     numberHouses.append(num)
@@ -35,6 +37,8 @@ for num in df['Total Households']:
 
 # print(sizes)
 
+
+# Well it's pretty ugly code, but here's linear regression (I think):
 avgSize = sum(sizes)/len(sizes)
 avgNum = sum(numberHouses)/len(numberHouses)
 
@@ -66,11 +70,11 @@ for s in sizes:
 
 r_squared = sum(nums2)/sum(denoms2)
 
-print(r_squared)
+print("CORRELATION: ", r_squared)
 
 
 
 
 
-# plt.scatter(sizes, numberHouses, alpha=0.5)
-# plt.show()
+plt.scatter(sizes, numberHouses, alpha=0.5)
+plt.show()
