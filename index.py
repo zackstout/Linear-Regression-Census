@@ -55,11 +55,13 @@ b1 = sum(numerators)/sum(denominators)
 
 b0 = avgNum - b1 * avgSize
 
+# Ok, these seem to be the correct values:
 print(b0, b1)
 
 for s in sizes:
     predictedNum = b0 + b1 * s
-    diffPredicted = predictedNum - s
+    # print(predictedNum)... OOH it's not minus s!
+    diffPredicted = predictedNum - avgNum
     nums2.append(diffPredicted * diffPredicted)
 
 r_squared = sum(nums2)/sum(denoms2)
@@ -67,8 +69,8 @@ r_squared = sum(nums2)/sum(denoms2)
 print(r_squared)
 
 
-#
-#
-#
+
+
+
 # plt.scatter(sizes, numberHouses, alpha=0.5)
 # plt.show()
