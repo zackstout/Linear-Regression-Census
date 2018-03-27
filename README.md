@@ -3,8 +3,6 @@ Learning linear regression by exploring this census data from [Data.gov](https:/
 
 Big thanks to [statisticsfun](https://www.youtube.com/channel/UClD8c_piy1nrJySPJUgyivg) for creating the [video](https://www.youtube.com/watch?v=w2FKXOa0HGA) that made this click for me!
 
-Now getting the correlations for each column of the dataframe against each other column. Some are very close to one (e.g. population of men and population of women), whereas some have barely any correlation.
-
 ## Screenshots:
 Pandas provides some very useful and easy-to-implement methods for visualizing our data.
 

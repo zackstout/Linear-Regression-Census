@@ -1,8 +1,4 @@
 
-# Next step:
-# Automate it to check correlations for each of its (options.len)*(options.len - 1)/2 possibilities.
-# The /2 because it's perfecly symmetric between x and y.
-
 import pandas as pd
 # import matplotlib
 from pandas.plotting import scatter_matrix
@@ -33,17 +29,11 @@ nums2 = []
 denoms2 = []
 currentX = ''
 currentY = ''
-# print(df.head(20))
 
 # Array to hold all totals: {x: '', y: '', correlation: ''}
 totals = []
 
-# print(df['Average Household Size'])
-
 options = ['Zip Code', 'Total Population', 'Median Age', 'Total Males', 'Total Females', 'Total Households', 'Average Household Size']
-
-# Yep, total males vs total females is 0.98. This must be correct.
-
 
 # I guess we can just change these column names, everything else should be fine:
 for size in df['Total Population']:
@@ -53,7 +43,6 @@ for num in df['Average Household Size']:
 
 
 ### !!!! Ok it's not working -- when we run the above it does not return same result as we see in our totals array.
-
 
 
 def getCorrelation():
@@ -83,9 +72,7 @@ def getCorrelation():
         # add this for r^2:
         denoms2.append(numDiffs[i] * numDiffs[i])
 
-    # print(numerators)
     b1 = sum(numerators)/sum(denominators)
-
     b0 = avgNum - b1 * avgSize
 
     # Ok, these seem to be the correct values:
@@ -100,7 +87,6 @@ def getCorrelation():
     r_squared = sum(nums2)/sum(denoms2)
 
     print("CORRELATION: ", r_squared)
-    # print()
 
     return r_squared
 
@@ -138,42 +124,28 @@ getCorrelation()
 #         totals.append(total)
 
 
-
-
 # print(totals)
-
 
 # for t in totals:
 #     print(t)
 #     print('\n')
 
 
-
-
 # --Visualize our data--:
 # box/whisker -- Wow this is amazing:
-df.plot(kind='box', subplots=True, layout=(3, 3), sharex=False, sharey=False)
-plt.show()
+# df.plot(kind='box', subplots=True, layout=(3, 3), sharex=False, sharey=False)
+# plt.show()
 
-# histograms -- Wow this is also nuts -- this works here:
+# histograms -- Wow this is also nuts:
 # df.hist()
 # plt.show()
 
-# scatter plot matrix -- WOW -- this works here:
+# scatter plot matrix -- WOW --:
 # scatter_matrix(df)
 # plt.show()
 
-
-
-
-
 # # To get two plots overlaid:
-# regression_line = [(b1*x)+b0 for x in sizes]
-# # plt.scatter(xs, ys)
-# # plt.show()
-#
-#
-# plt.scatter(sizes, numberHouses, alpha=0.5)
-# plt.plot(sizes, regression_line)
-#
-# plt.show()
+regression_line = [(b1*x)+b0 for x in sizes]
+plt.scatter(sizes, numberHouses, alpha=0.5)
+plt.plot(sizes, regression_line)
+plt.show()
