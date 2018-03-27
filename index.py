@@ -4,6 +4,9 @@
 # The /2 because it's perfecly symmetric between x and y.
 
 import pandas as pd
+# import matplotlib
+from pandas.plotting import scatter_matrix
+
 import matplotlib.pyplot as plt
 from matplotlib import style
 # nice!
@@ -146,13 +149,31 @@ getCorrelation()
 
 
 
-# To get two plots overlaid:
-regression_line = [(b1*x)+b0 for x in sizes]
-# plt.scatter(xs, ys)
+
+# --Visualize our data--:
+# box/whisker -- Wow this is amazing:
+df.plot(kind='box', subplots=True, layout=(3, 3), sharex=False, sharey=False)
+plt.show()
+
+# histograms -- Wow this is also nuts -- this works here:
+# df.hist()
+# plt.show()
+
+# scatter plot matrix -- WOW -- this works here:
+# scatter_matrix(df)
 # plt.show()
 
 
-plt.scatter(sizes, numberHouses, alpha=0.5)
-plt.plot(sizes, regression_line)
 
-plt.show()
+
+
+# # To get two plots overlaid:
+# regression_line = [(b1*x)+b0 for x in sizes]
+# # plt.scatter(xs, ys)
+# # plt.show()
+#
+#
+# plt.scatter(sizes, numberHouses, alpha=0.5)
+# plt.plot(sizes, regression_line)
+#
+# plt.show()
