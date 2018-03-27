@@ -18,4 +18,5 @@ All in one:
 ![screen shot 2018-03-27 at 2 37 28 am](https://user-images.githubusercontent.com/29472568/37953420-74ea2714-3168-11e8-8f23-07ae8319b536.png)
 
 Line of best fit:
+
 ![screen shot 2018-03-27 at 1 34 21 am](https://user-images.githubusercontent.com/29472568/37953432-7d3019f6-3168-11e8-895a-f34a2ec697b2.png)
